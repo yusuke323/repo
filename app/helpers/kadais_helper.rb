@@ -1,0 +1,2 @@
+module KadaisHelper
+end

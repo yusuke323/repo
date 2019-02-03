@@ -1,0 +1,16 @@
+h1 タスク詳細
+
+== render 'form'
+
+p#notice = notice
+
+p
+  strong Title:
+  = @kadai.title
+p
+  strong Body:
+  = @kadai.body
+
+=> link_to '編集', edit_kadai_path(@kadai)
+'|
+=< link_to '一覧に戻る', kadais_path

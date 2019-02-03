@@ -1,0 +1,26 @@
+h1 タスク一覧
+
+table
+  thead
+    tr
+      th ID
+      th タイトル
+      th 本文
+      th 作成日時
+      th 更新日時
+
+  tbody
+    - @kadais.each do |kadai|
+      tr
+        td = kadai.id
+        td = kadai.title
+        td = kadai.body
+        td = kadai.created_at
+        td = kadai.updated_at      
+        td = link_to '詳細', kadai
+        td = link_to '編集', edit_kadai_path(kadai)
+        td = link_to '削除', kadai, data: { confirm: '本当に削除しますか？' }, method: :delete
+
+br
+
+= link_to '新規作成', new_kadai_path
