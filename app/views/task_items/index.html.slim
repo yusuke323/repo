@@ -1,0 +1,23 @@
+h1 Listing task_items
+
+table
+  thead
+    tr
+      th Title
+      th Body
+      th
+      th
+      th
+
+  tbody
+    - @task_items.each do |task_item|
+      tr
+        td = task_item.title
+        td = task_item.body
+        td = link_to 'Show', task_item
+        td = link_to 'Edit', edit_task_item_path(task_item)
+        td = link_to 'Destroy', task_item, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Task item', new_task_item_path
