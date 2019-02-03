@@ -25,22 +25,17 @@ class TaskItemsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
       if @task_item.update(task_item_params)
-        format.html { redirect_to @task_item, notice: 'Task item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task_item }
+        redirect_to @task_item, notice: 'Task item was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @task_item.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   def destroy
     @task_item.destroy
-    respond_to do |format|
-      format.html { redirect_to task_items_url, notice: 'Task item was successfully destroyed.' }
-      format.json { head :no_content }
+      redirect_to task_items_url, notice: 'Task item was successfully destroyed.'
+      head :no_content
     end
   end
 
@@ -53,4 +48,3 @@ class TaskItemsController < ApplicationController
     def task_item_params
       params.require(:task_item).permit(:title, :body)
     end
-end
