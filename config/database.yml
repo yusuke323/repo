@@ -2,8 +2,6 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: yusuke
-  password: yusuke
 
 development:
   <<: *default
@@ -15,4 +13,5 @@ test:
 
 production:
   <<: *default
-  database: yusuke_production
+  adapter: postgresql #追加
+  database: db/yusuke_production.postgresql

@@ -1,0 +1,2 @@
+class Kadai < ApplicationRecord
+end
